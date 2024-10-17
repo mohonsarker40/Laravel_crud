@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DummuAPI;
+use App\Http\Controllers\DummuAPI2;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("dummy", [DummuAPI::class, "index"]);
+Route::get("dummy2", [DummuAPI2::class, "show"]);
