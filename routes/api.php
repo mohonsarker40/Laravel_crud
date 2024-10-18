@@ -20,4 +20,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("dummy", [DummuAPI::class, "index"]);
-Route::get("dummy2", [DummuAPI2::class, "show"]);

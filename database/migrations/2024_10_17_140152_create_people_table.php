@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('nid');
-            $table->string('phone');
-            $table->string('address', 512);
-            $table->timesamps();
+            $table->text('nid');
+            $table->text('phone');
+            $table->timestamps();
         });
     }
 
