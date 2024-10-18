@@ -1,5 +1,5 @@
 @extends('peoples.layout')
-@section('index')
+@section('content')
     <div class="container">
         <div class="row m-5">
             <div class="col-12">
@@ -10,39 +10,41 @@
                     </div>
 
                     <div class="card-body">
-                        <a href="{{ url('/people/create') }}" class="btn btn-primary" title="Add new student">Add
+                        <a href="{{ route('people.create') }}" class="btn btn-primary mb-5" title="Add new student">Add
                             now</a>
-                        <div class="table-response">
+                        <div class="table-responsive">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <td>Id</td>
-                                        <td>Name</td>
-                                        <td>NID</td>
-                                        <td>Phone</td>
-                                        <td>Actions</td>
-                                    </tr>
+                                <tr>
+                                    <td>Id</td>
+                                    <td>Name</td>
+                                    <td>NID</td>
+                                    <td>Phone</td>
+                                    <td>Actions</td>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($peoples as $people)
+                                @foreach($people as $key => $p)
                                     <tr>
-{{--                                        <td>Id</td>--}}
-                                        <td>{{ $people.name }}</td>
-                                        <td>{{ $people.nid }}</td>
-                                        <td>{{ $people.phone }}</td>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $p->name }}</td>
+                                        <td>{{ $p->nid }}</td>
+                                        <td>{{ $p->phone }}</td>
 
                                         <td>
-                                            <a href="" class="btn btn-primary" title="show student"
-                                               aria-hidden="true"><button class="btn btn-primary">Show</button></a>
 
-                                            <a href="" class="btn btn-warning" title="edit student"
-                                               aria-hidden="true"><button class="btn btn-primary">Edit</button></a>
+                                            <a href="" title="edit
+                                            student" aria-hidden="true">
+                                                <button class="btn btn-warning">Edit</button>
+                                            </a>
 
-                                            <a href="" class="btn btn-danger" title="delete student"
-                                               aria-hidden="true"><button class="btn btn-primary">Delete</button></a>
+                                            <a href=""  title="delete
+                                            student" aria-hidden="true">
+                                                <button class="btn btn-danger">Delete</button>
+                                            </a>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -52,4 +54,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection

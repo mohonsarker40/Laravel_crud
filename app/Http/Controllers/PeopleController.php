@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\People;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\name;
 
 class PeopleController extends Controller
 {
 
     public function index()
     {
-        $peoples = People::all();
-        return view('peoples.index')->with('$peoples', $peoples);
+        $people['people'] = People::all();
+        return view('peoples.index')->with( $people);
     }
 
 
@@ -23,6 +24,7 @@ class PeopleController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'nid' => 'required',
@@ -35,7 +37,9 @@ class PeopleController extends Controller
         $peoples->fill($input);
         $peoples->save();
 
-        return redirect()->back();
+//        return redirect()->back();
+        return redirect()->route('people.index')->with('success', 'Person added successfully.');
+
     }
 
 

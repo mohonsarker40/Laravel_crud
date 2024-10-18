@@ -8,5 +8,5 @@ Route::get('/', function () {
 });
 
 
-Route::resource('/people', \App\Http\Controllers\PeopleController::class);
+Route::resource('people', \App\Http\Controllers\PeopleController::class);
 

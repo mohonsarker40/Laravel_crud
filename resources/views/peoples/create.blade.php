@@ -1,5 +1,5 @@
 @extends('peoples.layout')
-@section('create')
+@section('content')
     <div class="card m-5">
         <div class="card-header">Create New People Information</div>
         <form class="p-5" action="{{ route('people.store') }}" method="POST">

@@ -7,7 +7,8 @@
 <body>
 
 <div class="container">
-    @yield('create')
+    @yield('content')
+
 </div>
 
 </body>
