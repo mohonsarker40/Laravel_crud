@@ -6,7 +6,7 @@
                 <div class="card p-5">
 
                     <div class="card-header">
-                        <h2>Laravel CRUD</h2>
+                        <h2>Laravel CRUD or List page</h2>
                     </div>
 
                     <div class="card-body">
@@ -33,15 +33,18 @@
 
                                         <td>
 
-                                            <a href="" title="edit
+                                            <a href="{{ route('people.edit',  $p->id) }}" title="edit
                                             student" aria-hidden="true">
                                                 <button class="btn btn-warning">Edit</button>
                                             </a>
 
-                                            <a href=""  title="delete
-                                            student" aria-hidden="true">
-                                                <button class="btn btn-danger">Delete</button>
-                                            </a>
+                                            <form action="{{ route('people.destroy', $p->id) }}" method="POST"
+                                                  style="display: inline-block;" onsubmit="return confirm('Are you ' +
+                                                   'sure you want to delete this person?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

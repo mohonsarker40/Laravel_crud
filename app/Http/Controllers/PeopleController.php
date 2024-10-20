@@ -31,13 +31,7 @@ class PeopleController extends Controller
             'phone' => 'required',
         ]);
 
-        $input = $request->except('_token');
-
-        $peoples = new People();
-        $peoples->fill($input);
-        $peoples->save();
-
-//        return redirect()->back();
+        People::create($request->all());
         return redirect()->route('people.index')->with('success', 'Person added successfully.');
 
     }
@@ -51,18 +45,30 @@ class PeopleController extends Controller
 
     public function edit(People $people)
     {
-        //
+        $id = request()->input('id');
+        $people = People::where('id', $id)->first();
+        return redirect()->route('people.edit', $people)->with('success', 'update');
+
     }
 
 
     public function update(Request $request, People $people)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'nid' => 'required',
+            'phone' => 'required',
+        ]);
+
+        $people->update($request->all());
+        return redirect()->route('people.index', $people )->with('success', 'update');
     }
 
 
-    public function destroy(People $people)
+    public function destroy($id)
     {
-        //
+        $people = People::where('id', $id)->first();
+        $people->delete();
+        return redirect()->back();
     }
 }
