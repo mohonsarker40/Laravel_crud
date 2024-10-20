@@ -32,7 +32,7 @@ class PeopleController extends Controller
         ]);
 
         People::create($request->all());
-        return redirect()->route('people.index')->with('success', 'Person added successfully.');
+        return redirect()->route('people.index');
 
     }
 
@@ -43,25 +43,31 @@ class PeopleController extends Controller
     }
 
 
-    public function edit(People $people)
+    public function edit($id)
     {
-        $id = request()->input('id');
         $people = People::where('id', $id)->first();
-        return redirect()->route('people.edit', $people)->with('success', 'update');
-
+        return view('peoples.edit')->with('people', $people);
     }
 
-
-    public function update(Request $request, People $people)
+    public function update(Request $request, $id)
     {
+
         $request->validate([
-            'name' => 'required',
-            'nid' => 'required',
-            'phone' => 'required',
+            'name'=> 'required',
+            'nid'=> 'required',
+            'phone'=> 'required',
         ]);
 
-        $people->update($request->all());
-        return redirect()->route('people.index', $people )->with('success', 'update');
+        $people = People::where('id', $id)->first();
+        if($people){
+            $people->name = $request->input('name');
+            $people->nid = $request->input('nid');
+            $people->phone = $request->input('phone');
+            $people->save();
+        }
+
+        return redirect()->route('people.index');
+
     }
 
 
