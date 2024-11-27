@@ -10,11 +10,11 @@
             </div>
             <div class="form-group">
                 <label for="nid">NID:</label>
-                <input type="text" class="form-control" placeholder="Enter NID" id="nid" name="nid" required>
+                <input type="number" class="form-control" placeholder="Enter NID" id="nid" name="nid"  required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input type="tel" class="form-control" placeholder="Enter phone number" id="phone" name="phone" required>
+                <input type="phone" class="form-control" placeholder="Enter phone number" id="phone" name="phone" required>
             </div>
 
             <div class="form-group form-check">
