@@ -10,8 +10,8 @@
                     </div>
 
                     <div class="card-body">
-                        <a href="{{ route('people.create') }}" class="btn btn-primary mb-5" title="Add new student">Add
-                            now</a>
+                        <a href="{{ route('people.create') }}" class="btn btn-primary mb-4"
+                           title="Add new people">Add now</a>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -39,8 +39,8 @@
                                             </a>
 
                                             <form action="{{ route('people.destroy', $p->id) }}" method="POST"
-                                                  style="display: inline-block;" onsubmit="return confirm('Are you ' +
-                                                   'sure you want to delete this person?');">
+                                                  style="display: inline-block;"
+                                                  onsubmit="return confirm('Are you ' + 'sure you want to delete this person?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

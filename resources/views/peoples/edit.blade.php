@@ -1,8 +1,11 @@
 @extends('peoples.layout')
 @section('content')
-    <div class="card m-5">
+    <div class="card">
         <div class="card-header">Update People Information</div>
         <form class="p-5" action="{{ route('people.update', $people->id ?? '') }}" method="POST">
+            <div class="text-right">
+                <a href="{{ route('people.index') }}" class="btn btn-secondary" type="button">Back to List</a>
+            </div>
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -26,7 +29,7 @@
                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
                 </label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary btn-block">Update</button>
         </form>
     </div>
 
