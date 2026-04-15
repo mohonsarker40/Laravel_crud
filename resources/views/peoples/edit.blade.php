@@ -20,10 +20,8 @@
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
                 <input type="tel" class="form-control" placeholder="Enter phone number" id="phone" name="phone"
-                       value="{{ isset($people) ? $people->phone : '' }}"
-                       required>
+                       value="{{ isset($people) ? $people->phone : '' }}" required>
             </div>
-
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
